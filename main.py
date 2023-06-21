@@ -59,4 +59,4 @@ if __name__ == "__main__":
         export(loaded[0], generated)
         print("[FINISHED] all languages generated")
 
-    time.sleep(3)
+    time.sleep(1)
