@@ -9,9 +9,10 @@ import os
 import time
 import json
 
+directory: str = "jsons"
+
 
 def export(languages: list[str, ...], jsons: list) -> None:
-    directory: str = "jsons"
     if not os.path.exists(directory):
         os.mkdir(directory)
         print(f"[INFO] generated directory {directory}")
@@ -23,6 +24,21 @@ def export(languages: list[str, ...], jsons: list) -> None:
 
         with open(f"{directory}/{language}", "w") as file:
             file.write(ex)
+
+
+def delete() -> None:
+    if not os.path.exists(directory):
+        print (f"[INFO] no files deleted because directory ({directory}) does not exist")
+        return
+
+    file_list:list = [f for f in os.listdir(directory)]
+    if len(file_list) == 0:
+        print(f"[INFO] no files deleted because no files existrs in dorectory: {directory}")
+        return;
+
+    for f in file_list:
+        os.remove(os.path.join(directory,f))
+        print(f"[INFO] deleting {f}")
 
 
 def generate(data: list) -> list:
@@ -56,6 +72,7 @@ if __name__ == "__main__":
 
         loaded: list = load(cur)
         generated: list = generate(loaded)
+        delete()
         export(loaded[0], generated)
         print("[FINISHED] all languages generated")
 
