@@ -6,7 +6,6 @@
 
 # python
 import os
-import shutil
 
 # libs
 import json
@@ -23,27 +22,6 @@ def export(languages: list[str, ...], jsons: list) -> None:
         file = os.path.join(files.jsons_directory, language)
         ex = json.dumps(jsons[i], indent=4)
         files.export(ex, file)
-
-
-def delete() -> None:
-    if not os.path.exists(files.jsons_directory):
-        p.Print(f"no files deleted because directory ({files.jsons_directory}) does not exist", p.PrintType.INFO)
-        return
-
-    file_list: list = [f for f in os.listdir(files.jsons_directory)]
-    if len(file_list) == 0:
-        p.Print(f"no files deleted because no files existrs in dorectory: {files.jsons_directory}", p.PrintType.INFO)
-        return;
-
-    for f in file_list:
-        file = os.path.join(files.jsons_directory, f)
-
-        if os.path.isdir(file):
-            shutil.rmtree(file)
-        else:
-            os.remove(file)
-
-        p.Print(f"deleting {file}", p.PrintType.INFO)
 
 
 def generate(data: list) -> list:
@@ -77,7 +55,7 @@ if __name__ == "__main__":
 
         loaded: list = load(cur)
         generated: list = generate(loaded)
-        delete()
+        files.delete_all_in_directory(files.jsons_directory)
         export(loaded[0], generated)
         p.Print("all languages generated", p.PrintType.FINISH)
 
