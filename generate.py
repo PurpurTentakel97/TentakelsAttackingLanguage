@@ -13,7 +13,9 @@ import json
 import sqlite3
 
 # me
-from helper import Print as p, files
+from helper import files
+from helper import Quit as q
+from helper import Print as p
 
 
 def export(languages: list[str, ...], jsons: list) -> bool:
@@ -50,17 +52,10 @@ def load(cur) -> list:
     return data
 
 
-def Quit(message: str) -> None:
-    p.Print(message, p.PrintType.ERROR)
-    p.Print("exiting...", p.PrintType.FINISH)
-    input()
-    quit()
-
-
 if __name__ == "__main__":
     file_name: str = files.db_full_default_name
     if not os.path.exists(file_name):
-        Quit(f"{file_name} is not existing")
+        p.Quit(f"{file_name} is not existing")
 
     con = sqlite3.connect(file_name)
     cur = con.cursor()
@@ -69,10 +64,10 @@ if __name__ == "__main__":
     generated: list = generate(loaded)
     p.Print("files in export directory", p.PrintType.DELETING)
     if not files.delete_all_in_directory(files.jsons_directory):
-        Quit("not all files could be deleted")
+        p.Quit("not all files could be deleted")
     p.Print("new files", p.PrintType.EXPORTING)
     if not export(loaded[0], generated):
-        Quit("not all files could be generated")
+        p.Quit("not all files could be generated")
     p.Print("all languages generated", p.PrintType.FINISH)
 
     input()
