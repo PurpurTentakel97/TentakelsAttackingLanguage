@@ -18,18 +18,11 @@ import files
 
 
 def export(languages: list[str, ...], jsons: list) -> None:
-    if not os.path.exists(files.jsons_directory):
-        os.mkdir(files.jsons_directory)
-        p.Print(f"generated directory {files.jsons_directory}", p.PrintType.INFO)
-
     for i in range(len(jsons)):
         language: str = languages[i + 1].lower() + "." + files.jsons_ending
-        file = os.path.join(files.jsons_directory,language)
-        p.Print(f"exporting {file}", p.PrintType.INFO)
+        file = os.path.join(files.jsons_directory, language)
         ex = json.dumps(jsons[i], indent=4)
-
-        with open(file, "w") as f:
-            f.write(ex)
+        files.export(ex, file)
 
 
 def delete() -> None:
