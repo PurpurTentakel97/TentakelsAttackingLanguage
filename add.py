@@ -36,15 +36,23 @@ if __name__ == "__main__":
 
     files.generate_dir_if_not_existing(files.new_json_directory)
 
-    p.Print_With_Level("enter 'q' to quit", p.PrintType.INFO, 1)
+    p.Print("enter 'q' to quit", p.PrintType.INFO)
 
     while True:
-        json_name: str = input("enter the json name to add in database\n")
+        print()
+        p.Print("enter the json name to add in database", p.PrintType.INPUT)
+        json_name: str = input()
         if is_quit_input(json_name):
             break
         filename = os.path.join(files.new_json_directory, json_name.strip() + '.' + files.jsons_ending)
         if not files.is_file_existing(filename):
             continue
 
-    p.Print("shutting down", p.PrintType.INFO)
-    time.sleep(3)
+        valid, data = files.load_json(filename, files.jsons_ending)
+        if not valid:
+            continue
+
+        p.Print("success", p.PrintType.DEBUG)
+
+    p.Print("shutting down...", p.PrintType.INFO)
+    time.sleep(1)

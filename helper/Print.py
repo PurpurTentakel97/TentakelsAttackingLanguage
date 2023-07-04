@@ -10,8 +10,11 @@ from enum import Enum
 # @formatter:off
 class PrintType(Enum):
     INFO =       "[INFO]",
+    INPUT =      "[INPUT]",
     ERROR =      "[ERROR]",
+    DEBUG =      "[DEBUG]",
     FINISH =     "[FINISH]",
+    LOADING =    "[LOADING]",
     COPYING =    "[COPYING]",
     DELETING =   "[DELETING]",
     EXPORTING =  "[EXPORTING]",
