@@ -24,5 +24,5 @@ def Print(message: str, type: PrintType) -> None:
 
 
 def Print_With_Level(message: str, type: PrintType, level: int):
-    message = '|' * (level + 1) + ' ' + message
+    message = '|' * level + (' ' if level > 0 else '') + message
     Print(message, type)

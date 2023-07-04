@@ -13,17 +13,36 @@ from helper import Print as p
 
 # globals
 jsons_directory: str = "jsons"
+new_json_directory: str = "new_jsons"
 jsons_ending: str = "tal"
 
 db_name: str = "language"
 db_ending: str = "db"
 db_full_default_name: str = db_name + '.' + db_ending
-db_copy_dir:str = "old_database"
+db_copy_dir: str = "old_database"
 
 copy_addon: str = "old"
 
 
-def copy_file(filename: str, dest_dir:str, level: int = 0) -> bool:
+def generate_dir_if_not_existing(dirname: str, level: int = 0) -> None:
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
+        p.Print_With_Level(f"generated directory {dirname}", p.PrintType.INFO, level)
+
+
+def is_file_existing(filename: str, level: int = 0) -> bool:
+    if not os.path.exists(filename):
+        p.Print_With_Level(f"{filename} not existing", p.PrintType.ERROR, level)
+        return False
+
+    if not os.path.isfile(filename):
+        p.Print_With_Level(f"{filename} is no file", p.PrintType.ERROR, level)
+        return False
+
+    return True
+
+
+def copy_file(filename: str, dest_dir: str, level: int = 0) -> bool:
     p.Print_With_Level(filename, p.PrintType.COPYING, level)
 
     if not os.path.exists(filename):
@@ -31,7 +50,7 @@ def copy_file(filename: str, dest_dir:str, level: int = 0) -> bool:
         return False
 
     if not os.path.isfile(filename):
-        p.Print_With_Level(f"{filename} is no file", p.PrintType.ERROR,level)
+        p.Print_With_Level(f"{filename} is no file", p.PrintType.ERROR, level)
         return False
 
     if not os.path.exists(dest_dir):
@@ -43,20 +62,20 @@ def copy_file(filename: str, dest_dir:str, level: int = 0) -> bool:
         return False
 
     base, tail = os.path.splitext(filename)
-    new_filename:str = base + "_" + copy_addon + "_" + date.get_current_time_as_string(date.long_file_date) + tail
-    new_filename = os.path.join(dest_dir,new_filename)
+    new_filename: str = base + "_" + copy_addon + "_" + date.get_current_time_as_string(date.long_file_date) + tail
+    new_filename = os.path.join(dest_dir, new_filename)
 
     shutil.copyfile(filename, new_filename)
 
     return True
 
 
-def export(content: str, filename: str, dest_dir:str, level: int = 0) -> bool:
+def export(content: str, filename: str, dest_dir: str, level: int = 0) -> bool:
     if not os.path.exists(dest_dir):
         os.makedirs(dest_dir)
         p.Print_With_Level(f"generated directory {dest_dir}", p.PrintType.INFO, level)
 
-    filename = os.path.join(dest_dir,filename)
+    filename = os.path.join(dest_dir, filename)
     p.Print_With_Level(f"{filename}", p.PrintType.EXPORTING, level)
     with open(filename, "w") as f:
         f.write(content)
