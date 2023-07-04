@@ -12,8 +12,7 @@ import json
 import sqlite3
 
 # me
-import Print as p
-import files
+from helper import Print as p, files
 
 
 def export(languages: list[str, ...], jsons: list) -> None:
@@ -55,7 +54,9 @@ if __name__ == "__main__":
 
         loaded: list = load(cur)
         generated: list = generate(loaded)
+        p.Print("current files in export directory", p.PrintType.DELETING)
         files.delete_all_in_directory(files.jsons_directory)
+        p.Print("new files", p.PrintType.EXPORTING)
         export(loaded[0], generated)
         p.Print("all languages generated", p.PrintType.FINISH)
 

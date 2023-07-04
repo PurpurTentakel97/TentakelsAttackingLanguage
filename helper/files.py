@@ -5,11 +5,10 @@
 
 # python
 import os
-import shutil
 
 # me
-import files
-import Print as p
+from helper import files
+from helper import Print as p
 
 # globals
 jsons_directory: str = "jsons"
@@ -23,13 +22,13 @@ def export(content: str, filename: str, level: int = 0) -> None:
         os.mkdir(files.jsons_directory)
         p.Print_With_Level(f"generated directory {files.jsons_directory}", p.PrintType.INFO, level)
 
-    p.Print_With_Level(f"exporting {filename}", p.PrintType.INFO, level)
+    p.Print_With_Level(f"{filename}", p.PrintType.EXPORTING, level)
     with open(filename, "w") as f:
         f.write(content)
 
 
 def delete_file(file: str, level: int = 0) -> None:
-    p.Print_With_Level(f"deleting {file}", p.PrintType.INFO, level)
+    p.Print_With_Level(f"{file}", p.PrintType.DELETING, level)
 
     if not os.path.exists(file):
         p.Print_With_Level(f"no file {file} exists for deleting", p.PrintType.ERROR, level)
@@ -42,7 +41,7 @@ def delete_file(file: str, level: int = 0) -> None:
 
 
 def delete_empty_directory(directory: str, level: int = 0) -> None:
-    p.Print_With_Level(f"deleting {directory}", p.PrintType.INFO, level)
+    p.Print_With_Level(f"{directory}", p.PrintType.DELETING, level)
 
     if not os.path.exists(directory):
         p.Print_With_Level(f"no directory {directory} exists for deleting", p.PrintType.ERROR, level)
