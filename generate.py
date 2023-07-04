@@ -1,6 +1,7 @@
 #
 # Purpur Tentakel
-# langauge files
+# generate langauge files from the db
+# Python 3.11
 # 18.06.2023
 #
 
