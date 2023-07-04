@@ -12,6 +12,7 @@ class PrintType(Enum):
     INFO =       "[INFO]",
     ERROR =      "[ERROR]",
     FINISH =     "[FINISH]",
+    COPYING =    "[COPYING]",
     DELETING =   "[DELETING]",
     EXPORTING =  "[EXPORTING]",
 # @formatter:on
