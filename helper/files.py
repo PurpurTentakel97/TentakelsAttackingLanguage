@@ -5,9 +5,10 @@
 
 # python
 import os
+import shutil
 
 # me
-from helper import files
+from helper import date
 from helper import Print as p
 
 # globals
@@ -17,22 +18,45 @@ jsons_ending: str = "tal"
 db_name: str = "language"
 db_ending: str = "db"
 db_full_default_name: str = db_name + '.' + db_ending
-db_copy_addon: str = "old"
+db_copy_dir:str = "old_database"
+
+copy_addon: str = "old"
 
 
-def copy_file(filename: str, level: int = 0) -> bool:
+def copy_file(filename: str, dest_dir:str, level: int = 0) -> bool:
     p.Print_With_Level(filename, p.PrintType.COPYING, level)
 
     if not os.path.exists(filename):
         p.Print_With_Level(f"file {filename} not existing", p.PrintType.ERROR, level)
         return False
 
+    if not os.path.isfile(filename):
+        p.Print_With_Level(f"{filename} is no file", p.PrintType.ERROR,level)
+        return False
 
-def export(content: str, filename: str, level: int = 0) -> bool:
-    if not os.path.exists(files.jsons_directory):
-        os.mkdir(files.jsons_directory)
-        p.Print_With_Level(f"generated directory {files.jsons_directory}", p.PrintType.INFO, level)
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
+        p.Print_With_Level(f"generated directory {dest_dir}", p.PrintType.INFO, level)
 
+    elif not os.path.isdir(dest_dir):
+        p.Print_With_Level(f"{dest_dir} is not a directory", p.PrintType.ERROR, level)
+        return False
+
+    base, tail = os.path.splitext(filename)
+    new_filename:str = base + "_" + copy_addon + "_" + date.get_current_time_as_string(date.long_file_date) + tail
+    new_filename = os.path.join(dest_dir,new_filename)
+
+    shutil.copyfile(filename, new_filename)
+
+    return True
+
+
+def export(content: str, filename: str, dest_dir:str, level: int = 0) -> bool:
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
+        p.Print_With_Level(f"generated directory {dest_dir}", p.PrintType.INFO, level)
+
+    filename = os.path.join(dest_dir,filename)
     p.Print_With_Level(f"{filename}", p.PrintType.EXPORTING, level)
     with open(filename, "w") as f:
         f.write(content)

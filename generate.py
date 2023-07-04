@@ -22,9 +22,8 @@ def export(languages: list[str, ...], jsons: list) -> bool:
     valid: bool = True
     for i in range(len(jsons)):
         language: str = languages[i + 1].lower() + "." + files.jsons_ending
-        file = os.path.join(files.jsons_directory, language)
         ex = json.dumps(jsons[i], indent=4)
-        if not files.export(ex, file):
+        if not files.export(ex, language, files.jsons_directory):
             valid = False
 
     if not valid:
@@ -55,7 +54,7 @@ def load(cur) -> list:
 if __name__ == "__main__":
     file_name: str = files.db_full_default_name
     if not os.path.exists(file_name):
-        p.Quit(f"{file_name} is not existing")
+        q.Quit(f"{file_name} is not existing")
 
     con = sqlite3.connect(file_name)
     cur = con.cursor()
@@ -64,10 +63,10 @@ if __name__ == "__main__":
     generated: list = generate(loaded)
     p.Print("files in export directory", p.PrintType.DELETING)
     if not files.delete_all_in_directory(files.jsons_directory):
-        p.Quit("not all files could be deleted")
+        q.Quit("not all files could be deleted")
     p.Print("new files", p.PrintType.EXPORTING)
     if not export(loaded[0], generated):
-        p.Quit("not all files could be generated")
+        q.Quit("not all files could be generated")
     p.Print("all languages generated", p.PrintType.FINISH)
 
     input()
