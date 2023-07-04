@@ -4,41 +4,53 @@
 # 18.06.2023
 #
 
-import sqlite3
+# python
 import os
-import time
-import json
+import shutil
 
-directory: str = "jsons"
+# libs
+import json
+import sqlite3
+
+# me
+import Print as p
+import files
 
 
 def export(languages: list[str, ...], jsons: list) -> None:
-    if not os.path.exists(directory):
-        os.mkdir(directory)
-        print(f"[INFO] generated directory {directory}")
+    if not os.path.exists(files.jsons_directory):
+        os.mkdir(files.jsons_directory)
+        p.Print(f"generated directory {files.jsons_directory}", p.PrintType.INFO)
 
     for i in range(len(jsons)):
-        language: str = languages[i + 1].lower() + ".tal"
-        print(f"[INFO] exporting {language}")
+        language: str = languages[i + 1].lower() + "." + files.jsons_ending
+        file = os.path.join(files.jsons_directory,language)
+        p.Print(f"exporting {file}", p.PrintType.INFO)
         ex = json.dumps(jsons[i], indent=4)
 
-        with open(f"{directory}/{language}", "w") as file:
-            file.write(ex)
+        with open(file, "w") as f:
+            f.write(ex)
 
 
 def delete() -> None:
-    if not os.path.exists(directory):
-        print (f"[INFO] no files deleted because directory ({directory}) does not exist")
+    if not os.path.exists(files.jsons_directory):
+        p.Print(f"no files deleted because directory ({files.jsons_directory}) does not exist", p.PrintType.INFO)
         return
 
-    file_list:list = [f for f in os.listdir(directory)]
+    file_list: list = [f for f in os.listdir(files.jsons_directory)]
     if len(file_list) == 0:
-        print(f"[INFO] no files deleted because no files existrs in dorectory: {directory}")
+        p.Print(f"no files deleted because no files existrs in dorectory: {files.jsons_directory}", p.PrintType.INFO)
         return;
 
     for f in file_list:
-        os.remove(os.path.join(directory,f))
-        print(f"[INFO] deleting {f}")
+        file = os.path.join(files.jsons_directory, f)
+
+        if os.path.isdir(file):
+            shutil.rmtree(file)
+        else:
+            os.remove(file)
+
+        p.Print(f"deleting {file}", p.PrintType.INFO)
 
 
 def generate(data: list) -> list:
@@ -61,10 +73,10 @@ def load(cur) -> list:
 
 
 if __name__ == "__main__":
-    file_name: str = "language.db"
+    file_name: str = files.db_name
     if not os.path.exists(file_name):
-        print(f"[ERROR] {file_name} is not existing")
-        print("[FINISHED] exiting...")
+        p.Print(f"{file_name} is not existing", p.PrintType.ERROR)
+        p.Print("exiting...", p.PrintType.FINISH)
 
     else:
         con = sqlite3.connect(file_name)
@@ -74,6 +86,6 @@ if __name__ == "__main__":
         generated: list = generate(loaded)
         delete()
         export(loaded[0], generated)
-        print("[FINISHED] all languages generated")
+        p.Print("all languages generated", p.PrintType.FINISH)
 
-    time.sleep(1)
+    input()
