@@ -79,7 +79,8 @@ def _update_field(cur: Cursor, language: str, value: str, key: str) -> None:
         cur.execute(sql_command, (value, key))
         if cur.rowcount == 0:
             _handle_non_existing_key(cur, language, value, key)
-        p.Print(f"updated '{value}' at '{key}'", p.PrintType.INFO)
+        else:
+            p.Print(f"updated '{value}' at '{key}'", p.PrintType.INFO)
     except sqlite3.OperationalError as e:
         p.Print_SQLite_Error(f"{e.sqlite_errorcode} | {e.sqlite_errorname}")
         p.Print(f"failed to update '{value}' at '{key}'", p.PrintType.ERROR)
