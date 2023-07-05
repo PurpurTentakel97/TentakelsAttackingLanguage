@@ -162,5 +162,14 @@
     "logic_game_manager_popup_next_turn_title": "N\u00e4chster Spieler{0}",
     "logic_game_manager_popup_next_turn_text": "Der Zug w\u00e4re zu Ende.",
     "logic_game_manager_popup_next_round_title": "N\u00e4chste Runde{0}",
-    "logic_game_manager_popup_next_round_text": "Der Zug w\u00e4re zu Ende."
+    "logic_game_manager_popup_next_round_text": "Der Zug w\u00e4re zu Ende.",
+    "helper_fleet": "Flotte",
+    "helper_planet": "Planet",
+    "helper_target_point": "Zielpunkt",
+    "ui_popup_arriving_fleet_title": "Flotte trifft ein",
+    "ui_popup_arriving_fleet_subtitle": "{0} Schiffe von {1} treffen auf  {2} {3} ein.",
+    "ui_popup_no_evaluation_title": "Auswertung",
+    "ui_popup_no_evaluation_subtitle": "Es gab keine Ereignisse.",
+    "ui_popup_end_of_evaluation_title": "Auswertungsende",
+    "ui_popup_end_of_evaluation_subtitle": "Start der n\u00e4chsten Runde."
 }

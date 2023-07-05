@@ -162,5 +162,14 @@
     "logic_game_manager_popup_next_turn_title": "Next player{0}",
     "logic_game_manager_popup_next_turn_text": "Your turn will be over.",
     "logic_game_manager_popup_next_round_title": "Next Round{0}",
-    "logic_game_manager_popup_next_round_text": "Your turn will be over."
+    "logic_game_manager_popup_next_round_text": "Your turn will be over.",
+    "helper_fleet": "fleet",
+    "helper_planet": "planet",
+    "helper_target_point": "target point",
+    "ui_popup_arriving_fleet_title": "Fleet arriving",
+    "ui_popup_arriving_fleet_subtitle": "{0} ships from {1} arriving at {2} {3}.",
+    "ui_popup_no_evaluation_title": "Evaluation",
+    "ui_popup_no_evaluation_subtitle": "There have been no events.",
+    "ui_popup_end_of_evaluation_title": "End of evaluation",
+    "ui_popup_end_of_evaluation_subtitle": "start next round."
 }
