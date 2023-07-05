@@ -26,6 +26,10 @@ def Print(message: str, type: PrintType) -> None:
     print(f"{' ' * (longest - len(type.value[0]))}{type.value[0]} {message}")
 
 
-def Print_With_Level(message: str, type: PrintType, level: int):
+def Print_With_Level(message: str, type: PrintType, level: int) -> None:
     message = '|' * level + (' ' if level > 0 else '') + message
     Print(message, type)
+
+
+def Print_SQLite_Error(message: str) -> None:
+    Print(f"[SQLite] {message}", PrintType.ERROR)

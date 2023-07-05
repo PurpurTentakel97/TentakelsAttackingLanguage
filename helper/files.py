@@ -13,44 +13,16 @@ from helper import Print as p
 
 # globals
 jsons_directory: str = "jsons"
-new_json_directory: str = "new_jsons"
 jsons_ending: str = "tal"
 
 db_name: str = "language"
 db_ending: str = "db"
 db_full_default_name: str = db_name + '.' + db_ending
+db_new_name:str = "new_language"
+db_full_new_name:str = db_new_name + '.' + db_ending
 db_copy_dir: str = "old_database"
 
 copy_addon: str = "old"
-
-
-def load_json(filename: str, file_ending: str, level: int = 0) -> tuple:
-    p.Print_With_Level(f"{filename}", p.PrintType.LOADING, level)
-
-    if not os.path.exists(filename):
-        p.Print_With_Level(f"{filename} does not exist", p.PrintType.ERROR, level)
-        return False, None
-
-    if not os.path.isfile(filename):
-        p.Print_With_Level(f"{filename} is no file", p.PrintType.ERROR, level)
-        return False, None
-
-    body, tail = os.path.splitext(filename)
-    if tail != '.' + file_ending:
-        p.Print_With_Level(f"{filename} does not has the {'.' + file_ending} format", p.PrintType.ERROR, level)
-        return False, None
-
-    with open(filename, "r") as file:
-        try:
-            data: list = json.load(file)
-            return True, data
-        except json.JSONDecodeError as e:
-            message: str = f"pos: {e.pos} | line: {e.lineno} | column: {e.colno} | msg: {e.msg}"
-            p.Print_With_Level(f"JSON error: {message}", p.PrintType.ERROR, level)
-        except:
-            p.Print_With_Level(f"unknown error while loading {filename}", p.PrintType.ERROR, level)
-
-    return False, None
 
 
 def generate_dir_if_not_existing(dirname: str, level: int = 0) -> None:
