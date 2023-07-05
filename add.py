@@ -43,6 +43,23 @@ def _is_language_in_data(data: list, language: str) -> bool:
     return language in data[0]
 
 
+def _handle_non_existing_key(cur: Cursor, language: str, value: str, key: str) -> None:
+    p.Print(f"key {key} is not existing in {files.db_full_default_name}", p.PrintType.ERROR)
+    p.Print("add the key to the database? y | n", p.PrintType.INPUT)
+    input_: str = input()
+    if input_ != 'y':
+        p.Print("not added", p.PrintType.INFO)
+        return
+
+    sql_command: str = f"""INSERT INTO main (key,{language}) VALUES (?, ?);"""
+    try:
+        cur.execute(sql_command, (key, value))
+        p.Print(f"added '{value}' at '{key}'", p.PrintType.INFO)
+    except sqlite3.OperationalError as e:
+        p.Print_SQLite_Error(f"{e.sqlite_errorcode} | {e.sqlite_errorname}")
+        p.Print(f"failed to add '{value}' at '{key}'", p.PrintType.ERROR)
+
+
 def _add_column(cur: Cursor, language: str) -> bool:
     sql_command: str = f"""ALTER TABLE main ADD COLUMN {language} TEXT;"""
     try:
@@ -60,6 +77,8 @@ def _update_field(cur: Cursor, language: str, value: str, key: str) -> None:
     sql_command: str = f"""UPDATE main SET {language} = ? WHERE key = ?;"""
     try:
         cur.execute(sql_command, (value, key))
+        if cur.rowcount == 0:
+            _handle_non_existing_key(cur, language, value, key)
         p.Print(f"updated '{value}' at '{key}'", p.PrintType.INFO)
     except sqlite3.OperationalError as e:
         p.Print_SQLite_Error(f"{e.sqlite_errorcode} | {e.sqlite_errorname}")
