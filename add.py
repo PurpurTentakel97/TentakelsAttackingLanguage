@@ -30,11 +30,12 @@ def is_quit_input(input_: str) -> bool:
 
 def is_language_in_db(cur: Cursor, language: str) -> bool:
     print(language)
-    sql_command: str = """SELECT ? FROM main;"""
-    cur.execute(sql_command, (language,))
+    sql_command: str = f"""SELECT {language} FROM main;"""
+    cur.execute(sql_command)
     print(cur.fetchall())
 
-    return True
+    return False
+    # @todo fix language check
 
 
 if __name__ == "__main__":
