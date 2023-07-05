@@ -47,21 +47,23 @@ def _add_column(cur: Cursor, language: str) -> bool:
     sql_command: str = f"""ALTER TABLE main ADD COLUMN {language} TEXT;"""
     try:
         cur.execute(sql_command)
-        p.Print(f"added column {language}", p.PrintType.INFO)
+        p.Print(f"added column '{language}'", p.PrintType.INFO)
         _update_field(cur, language, language, "key")
+        cur.connection.commit()
         return True
     except sqlite3.OperationalError as e:
         p.Print_SQLite_Error(f"{e.sqlite_errorcode} | {e.sqlite_errorname}")
         return False
 
 
-def _update_field(cur: Cursor, language: str, value: str, key) -> None:
+def _update_field(cur: Cursor, language: str, value: str, key: str) -> None:
     sql_command: str = f"""UPDATE main SET {language} = ? WHERE key = ?;"""
     try:
         cur.execute(sql_command, (value, key))
+        p.Print(f"updated '{value}' at '{key}'", p.PrintType.INFO)
     except sqlite3.OperationalError as e:
         p.Print_SQLite_Error(f"{e.sqlite_errorcode} | {e.sqlite_errorname}")
-        p.Print(f"failed to update {key}", p.PrintType.ERROR)
+        p.Print(f"failed to update '{value}' at '{key}'", p.PrintType.ERROR)
 
 
 def _update(o_cur: Cursor, o_data: list, n_data: list, language: str) -> None:
@@ -69,6 +71,21 @@ def _update(o_cur: Cursor, o_data: list, n_data: list, language: str) -> None:
         if not _add_column(o_cur, language):
             p.Print("failed to add new column", p.PrintType.ERROR)
             return
+
+    l_index: int = n_data[0].index(language)
+    k_index: int = 0
+
+    for entry in n_data:
+        if n_data.index(entry) == 0:
+            continue
+        if entry[k_index] is None:
+            p.Print("key is is None", p.PrintType.ERROR)
+            continue
+        if entry[l_index] is None:
+            p.Print(f"value is None for key '{entry[k_index]}'", p.PrintType.ERROR)
+            continue
+
+        _update_field(o_cur, language, entry[l_index], entry[k_index])
 
 
 if __name__ == "__main__":
@@ -94,10 +111,14 @@ if __name__ == "__main__":
     # get data
     valid, o_data = _get_data_from_db(o_cur)
     if not valid:
+        o_con.close()
+        n_con.close()
         q.Quit(f"invalid data in {files.db_full_default_name}")
 
     valid, n_data = _get_data_from_db(n_cur)
     if not valid:
+        o_con.close()
+        n_con.close()
         q.Quit(f"invalid data in {files.db_full_new_name}")
 
     p.Print("enter 'q' to quit", p.PrintType.INFO)
@@ -135,6 +156,8 @@ if __name__ == "__main__":
             p.Print("reload data", p.PrintType.INFO)
             valid, o_data = _get_data_from_db(o_cur)
             if not valid:
+                o_con.close()
+                n_con.close()
                 q.Quit(f"invalid data in {files.db_full_default_name}")
         else:
             p.Print("rollback", p.PrintType.FINISH)
@@ -143,4 +166,6 @@ if __name__ == "__main__":
         p.Print("success", p.PrintType.DEBUG)
 
     p.Print("shutting down...", p.PrintType.INFO)
+    o_con.close()
+    n_con.close()
     time.sleep(1)
