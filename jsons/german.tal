@@ -171,5 +171,11 @@
     "ui_popup_no_evaluation_title": "Auswertung",
     "ui_popup_no_evaluation_subtitle": "Es gab keine Ereignisse.",
     "ui_popup_end_of_evaluation_title": "Auswertungsende",
-    "ui_popup_end_of_evaluation_subtitle": "Start der n\u00e4chsten Runde."
+    "ui_popup_end_of_evaluation_subtitle": "Start der n\u00e4chsten Runde.",
+    "helper_fight_big": "Kampf",
+    "ui_popup_fight_result_fight_at_planet": "Kampf um Planet {0}",
+    "ui_popup_fight_result_fight_at_coordinates": "Kampf im Raum ({0}/{1})",
+    "helper_next_big": "Weiter",
+    "ui_popup_fight_result_win_text": "{0} gewinnt!",
+    "helper_skip_big": "\u00dcberspringen"
 }

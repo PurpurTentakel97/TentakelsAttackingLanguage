@@ -171,5 +171,11 @@
     "ui_popup_no_evaluation_title": "Evaluation",
     "ui_popup_no_evaluation_subtitle": "There have been no events.",
     "ui_popup_end_of_evaluation_title": "End of evaluation",
-    "ui_popup_end_of_evaluation_subtitle": "start next round."
+    "ui_popup_end_of_evaluation_subtitle": "start next round.",
+    "helper_fight_big": "Fight",
+    "ui_popup_fight_result_fight_at_planet": "Fight at Planet {0}",
+    "ui_popup_fight_result_fight_at_coordinates": "Fight in space ({0}/{1})",
+    "helper_next_big": "Next",
+    "ui_popup_fight_result_win_text": "{0} wins!",
+    "helper_skip_big": "Skip"
 }
