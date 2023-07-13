@@ -178,5 +178,5 @@
     "helper_next_big": "Next",
     "ui_popup_fight_result_win_text": "{0} wins!",
     "helper_skip_big": "Skip",
-    "version": "0.1.5.0"
+    "version": "v0.1.5.0"
 }
