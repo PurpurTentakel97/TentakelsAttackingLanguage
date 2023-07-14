@@ -178,5 +178,6 @@
     "helper_next_big": "Next",
     "ui_popup_fight_result_win_text": "{0} wins!",
     "helper_skip_big": "Skip",
-    "version": "v0.1.5.0"
+    "version": "v0.1.4.1",
+    "ui_popup_start_evaluation_subtitle": "start the evaluation when all players are present"
 }
