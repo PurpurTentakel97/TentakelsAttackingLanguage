@@ -178,6 +178,12 @@
     "helper_next_big": "Next",
     "ui_popup_fight_result_win_text": "{0} wins!",
     "helper_skip_big": "Skip",
-    "version": "v0.1.4.1",
-    "ui_popup_start_evaluation_subtitle": "start the evaluation when all players are present"
+    "version": "v0.1.4.2",
+    "ui_popup_start_evaluation_subtitle": "start the evaluation when all players are present",
+    "ui_popup_game_still_running_title": "Game still running",
+    "ui_popup_game_still_running_subtitle": "There is currently a game running. Overwrite the current game?",
+    "ui_popup_no_game_title": "No game",
+    "ui_popup_no_game_subtitle": "There is no current game that can be continued.",
+    "ui_popup_not_saved_title": "Not saved",
+    "ui_popup_not_saved_subtitle": "The current game is not saved. Exit anyway?"
 }
