@@ -178,6 +178,12 @@
     "helper_next_big": "Weiter",
     "ui_popup_fight_result_win_text": "{0} gewinnt!",
     "helper_skip_big": "\u00dcberspringen",
-    "version": "v0.1.4.1",
-    "ui_popup_start_evaluation_subtitle": "Auswertung beginnen, wenn alle Spieler anwesend sind."
+    "version": "v0.1.4.2",
+    "ui_popup_start_evaluation_subtitle": "Auswertung beginnen, wenn alle Spieler anwesend sind.",
+    "ui_popup_game_still_running_title": "Spiel l\u00e4uft noch",
+    "ui_popup_game_still_running_subtitle": "Es l\u00e4uft gerade ein Spiel. Das aktuelle Spiel \u00fcberschreiben?",
+    "ui_popup_no_game_title": "Kein Spiel",
+    "ui_popup_no_game_subtitle": "Es gibt kein aktuelles Spiel, das fortgesetzt werden kann.",
+    "ui_popup_not_saved_title": "Nicht gespeichert",
+    "ui_popup_not_saved_subtitle": "Das aktuelle spiel ist nicht gespeichert. Trotzdem beenden?"
 }
