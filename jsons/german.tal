@@ -175,7 +175,7 @@
     "helper_next_big": "Weiter",
     "ui_popup_fight_result_win_text": "{0} gewinnt!",
     "helper_skip_big": "\u00dcberspringen",
-    "version": "v0.1.4.4",
+    "version": "v0.1.4.5",
     "ui_popup_start_evaluation_subtitle": "Auswertung beginnen, wenn alle Spieler anwesend sind.",
     "ui_popup_game_still_running_title": "Spiel l\u00e4uft noch",
     "ui_popup_game_still_running_subtitle": "Es l\u00e4uft gerade ein Spiel. Das aktuelle Spiel \u00fcberschreiben?",
@@ -190,5 +190,10 @@
     "helper_network": "Netzwerk",
     "helper_game_settings": "Spieleinstellungen",
     "helper_shuffle_players": "Spieler mischen",
-    "helper_app_settings": "Programmeinstellungen"
+    "helper_app_settings": "Programmeinstellungen",
+    "ui_game_settings_fights": "K\u00e4mpfe{0}",
+    "ui_game_settings_fight_planet_fleet": "Planet {0} Flotte",
+    "ui_game_settings_planet_target_point": "Planet {0} Zielpunkt",
+    "ui_game_settings_target_point_fleet": "Zielpunkt {0} Flotte",
+    "ui_game_settings_target_point_target_point": "Zielpunkt {0} Zielpunkt"
 }
