@@ -19,7 +19,7 @@
     "scene_settings_main_menu_btn": "Hauptmen\u00fc",
     "scene_settings_continue_btn": "Weiter spielen",
     "scene_settings_end_game_btn": "Spiel beenden",
-    "scene_settings_toggle_fullscreen_btn": "Vollbild umschalten",
+    "scene_app_settings_fullscreen": "Vollbild umschalten",
     "scene_credits_speed_toggle_btn": "Geschwindigkeit {0} / {1}",
     "scene_credits_back_btn": "Zur\u00fcck",
     "scene_credits_credits_title": "Mitwirkende",
@@ -175,7 +175,7 @@
     "helper_next_big": "Weiter",
     "ui_popup_fight_result_win_text": "{0} gewinnt!",
     "helper_skip_big": "\u00dcberspringen",
-    "version": "v0.1.4.3",
+    "version": "v0.1.4.4",
     "ui_popup_start_evaluation_subtitle": "Auswertung beginnen, wenn alle Spieler anwesend sind.",
     "ui_popup_game_still_running_title": "Spiel l\u00e4uft noch",
     "ui_popup_game_still_running_subtitle": "Es l\u00e4uft gerade ein Spiel. Das aktuelle Spiel \u00fcberschreiben?",
@@ -187,5 +187,8 @@
     "helper_game": "Spiel",
     "helper_app": "Programm",
     "helper_saves": "Speicherst\u00e4nde",
-    "helper_network": "Netzwerk"
+    "helper_network": "Netzwerk",
+    "helper_game_settings": "Spieleinstellungen",
+    "helper_shuffle_players": "Spieler mischen",
+    "helper_app_settings": "Programmeinstellungen"
 }

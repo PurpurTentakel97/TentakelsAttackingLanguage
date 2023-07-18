@@ -19,7 +19,7 @@
     "scene_settings_main_menu_btn": "Main menu",
     "scene_settings_continue_btn": "Continue",
     "scene_settings_end_game_btn": "End game",
-    "scene_settings_toggle_fullscreen_btn": "Toggle fullscreen",
+    "scene_app_settings_fullscreen": "Toggle fullscreen",
     "scene_credits_speed_toggle_btn": "Speed {0} / {1}",
     "scene_credits_back_btn": "Back",
     "scene_credits_credits_title": "Credits",
@@ -175,7 +175,7 @@
     "helper_next_big": "Next",
     "ui_popup_fight_result_win_text": "{0} wins!",
     "helper_skip_big": "Skip",
-    "version": "v0.1.4.3",
+    "version": "v0.1.4.4",
     "ui_popup_start_evaluation_subtitle": "start the evaluation when all players are present",
     "ui_popup_game_still_running_title": "Game still running",
     "ui_popup_game_still_running_subtitle": "There is currently a game running. Overwrite the current game?",
@@ -187,5 +187,8 @@
     "helper_game": "Game",
     "helper_app": "Application",
     "helper_saves": "Saves",
-    "helper_network": "Network"
+    "helper_network": "Network",
+    "helper_game_settings": "Game Settings",
+    "helper_shuffle_players": "Shuffle players",
+    "helper_app_settings": "Application Settings"
 }
