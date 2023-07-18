@@ -195,5 +195,7 @@
     "ui_game_settings_fight_planet_fleet": "Planet {0} Fleet",
     "ui_game_settings_planet_target_point": "Planet {0} Target Point",
     "ui_game_settings_target_point_fleet": "Target Point {0} Fleet",
-    "ui_game_settings_target_point_target_point": "Target Point {0} Target Point"
+    "ui_game_settings_target_point_target_point": "Target Point {0} Target Point",
+    "helper_new_language": "New Language",
+    "ui_popup_new_language_text": "new language: {0}. It is displayed as soon as new content is loaded. "
 }
