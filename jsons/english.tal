@@ -19,7 +19,7 @@
     "scene_settings_main_menu_btn": "Main menu",
     "scene_settings_continue_btn": "Continue",
     "scene_settings_end_game_btn": "End game",
-    "scene_settings_toggle_fullscreen_btn": "Toggle fullscreen",
+    "scene_app_settings_fullscreen": "Toggle fullscreen",
     "scene_credits_speed_toggle_btn": "Speed {0} / {1}",
     "scene_credits_back_btn": "Back",
     "scene_credits_credits_title": "Credits",
@@ -187,5 +187,8 @@
     "helper_game": "Game",
     "helper_app": "Application",
     "helper_saves": "Saves",
-    "helper_network": "Network"
+    "helper_network": "Network",
+    "helper_game_settings": "Game Settings",
+    "helper_shuffle_players": "Shuffle players",
+    "helper_app_settings": "Application Settings"
 }
