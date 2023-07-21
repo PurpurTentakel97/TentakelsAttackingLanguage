@@ -175,7 +175,7 @@
     "helper_next_big": "Weiter",
     "ui_popup_fight_result_win_text": "{0} gewinnt!",
     "helper_skip_big": "\u00dcberspringen",
-    "version": "v0.1.5.0",
+    "version": "v0.1.5.1",
     "ui_popup_start_evaluation_subtitle": "Auswertung beginnen, wenn alle Spieler anwesend sind.",
     "ui_popup_game_still_running_title": "Spiel l\u00e4uft noch",
     "ui_popup_game_still_running_subtitle": "Es l\u00e4uft gerade ein Spiel. Das aktuelle Spiel \u00fcberschreiben?",
@@ -197,5 +197,17 @@
     "ui_game_settings_target_point_fleet": "Zielpunkt {0} Flotte",
     "ui_game_settings_target_point_target_point": "Zielpunkt {0} Zielpunkt",
     "helper_new_language": "Neue Sprache",
-    "ui_popup_new_language_text": "neue Sprache: {0}. Sie wird angezeigt sobald neue Inhalte geladen werden. "
+    "ui_popup_new_language_text": "neue Sprache: {0}. Sie wird angezeigt sobald neue Inhalte geladen werden. ",
+    "ui_popup_max_player_title": "Max Spieler",
+    "ui_popup_max_player_subtitle": "Es sind keine weiteren Player-Slots verf\u00fcgbar",
+    "helper_invalid_id": "Ung\u00fcltige ID",
+    "ui_popup_invalid_id_subtitle": "ID {0} existiert nicht.",
+    "ui_popup_player_count_title": "Spieleranzahl",
+    "ui_popup_player_count_min_subtitle": "Nicht genug Spieler.{0} aktuelle min. Spieleranzahl: {1}",
+    "ui_popup_player_count_max_subtitle": "Nicht genug Spieler.{0} aktuelle max. Spieleranzahl: {1}",
+    "ui_popup_no_player_subtitle": "Kein aktueller Spieler ausgew\u00e4hlt.",
+    "ui_popup_add_fleet_origin_too_low": "Eingabe im Ursprung, Ursprung zu niedrig",
+    "ui_popup_add_fleet_destination_too_low": "Eingabe im Ziel, Ziel zu niedrig",
+    "ui_popup_add_fleet_ship_count_too_low": "Eingabe der Schiffsanzahl, Schiffsanzahl zu niedrig",
+    "ui_popup_add_fleet_to_many_destination_inputs": "Zu viele Eingaben f\u00fcr den Zielort"
 }

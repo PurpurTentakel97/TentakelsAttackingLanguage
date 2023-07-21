@@ -175,7 +175,7 @@
     "helper_next_big": "Next",
     "ui_popup_fight_result_win_text": "{0} wins!",
     "helper_skip_big": "Skip",
-    "version": "v0.1.5.0",
+    "version": "v0.1.5.1",
     "ui_popup_start_evaluation_subtitle": "start the evaluation when all players are present",
     "ui_popup_game_still_running_title": "Game still running",
     "ui_popup_game_still_running_subtitle": "There is currently a game running. Overwrite the current game?",
@@ -197,5 +197,17 @@
     "ui_game_settings_target_point_fleet": "Target Point {0} Fleet",
     "ui_game_settings_target_point_target_point": "Target Point {0} Target Point",
     "helper_new_language": "New Language",
-    "ui_popup_new_language_text": "new language: {0}. It is displayed as soon as new content is loaded. "
+    "ui_popup_new_language_text": "new language: {0}. It is displayed as soon as new content is loaded. ",
+    "ui_popup_max_player_title": "Max player",
+    "ui_popup_max_player_subtitle": "No more Player slots are available",
+    "helper_invalid_id": "Invalid ID",
+    "ui_popup_invalid_id_subtitle": "ID {0} is not existing.",
+    "ui_popup_player_count_title": "Player count",
+    "ui_popup_player_count_min_subtitle": "Not enough players.{0} current min. Player Count: {1}",
+    "ui_popup_player_count_max_subtitle": "Not enough players.{0} current max. Player Count: {1}",
+    "ui_popup_no_player_subtitle": "No current player selected.",
+    "ui_popup_add_fleet_origin_too_low": "input in origin, origin too low",
+    "ui_popup_add_fleet_destination_too_low": "input in destination, destination too low",
+    "ui_popup_add_fleet_ship_count_too_low": "input in ship count, ship count too low",
+    "ui_popup_add_fleet_to_many_destination_inputs": "Too many inputs for destination"
 }
