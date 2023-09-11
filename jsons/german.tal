@@ -175,7 +175,7 @@
     "helper_next_big": "Weiter",
     "ui_popup_fight_result_win_text": "{0} gewinnt!",
     "helper_skip_big": "\u00dcberspringen",
-    "version": "v0.1.5.2",
+    "version": "v0.1.5.3",
     "ui_popup_start_evaluation_subtitle": "Auswertung beginnen, wenn alle Spieler anwesend sind.",
     "ui_popup_game_still_running_title": "Spiel l\u00e4uft noch",
     "ui_popup_game_still_running_subtitle": "Es l\u00e4uft gerade ein Spiel. Das aktuelle Spiel \u00fcberschreiben?",
@@ -209,5 +209,7 @@
     "ui_popup_add_fleet_origin_too_low": "Eingabe im Ursprung, Ursprung zu niedrig",
     "ui_popup_add_fleet_destination_too_low": "Eingabe im Ziel, Ziel zu niedrig",
     "ui_popup_add_fleet_ship_count_too_low": "Eingabe der Schiffsanzahl, Schiffsanzahl zu niedrig",
-    "ui_popup_add_fleet_to_many_destination_inputs": "Zu viele Eingaben f\u00fcr den Zielort"
+    "ui_popup_add_fleet_to_many_destination_inputs": "Zu viele Eingaben f\u00fcr den Zielort",
+    "scene_main_scene_popup_text_skip_turn_title": "Keine Z\u00fcge m\u00f6glich",
+    "scene_main_scene_popup_text_skip_turn_subtitle": "Spieler {0} wurde besiegt.{1}Dies ist dein letzter Zug."
 }
