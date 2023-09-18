@@ -22,7 +22,7 @@ def export(languages: list[str, ...], jsons: list) -> bool:
     valid: bool = True
     for i in range(len(jsons)):
         language: str = languages[i + 1].lower() + "." + files.jsons_ending
-        ex = json.dumps(jsons[i], indent=4)
+        ex = json.dumps(jsons[i], indent=4) + '\n'
         if not files.export(ex, language, files.jsons_directory):
             valid = False
 
