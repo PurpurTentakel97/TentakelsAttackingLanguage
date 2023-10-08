@@ -175,7 +175,7 @@
     "helper_next_big": "Weiter",
     "ui_popup_fight_result_win_text": "{0} gewinnt!",
     "helper_skip_big": "\u00dcberspringen",
-    "version": "v0.1.5.4",
+    "version": "v0.1.5.5",
     "ui_popup_start_evaluation_subtitle": "Auswertung beginnen, wenn alle Spieler anwesend sind.",
     "ui_popup_game_still_running_title": "Spiel l\u00e4uft noch",
     "ui_popup_game_still_running_subtitle": "Es l\u00e4uft gerade ein Spiel. Das aktuelle Spiel \u00fcberschreiben?",
@@ -216,5 +216,7 @@
     "ui_popup_resign_title": "Aufgeben{0}",
     "ui_popup_resign_subtitle": "Wenn du aufgegeben hast kannst du dem Spiel nicht erneut beitreten.",
     "ui_popup_player_removed_title": "Spieler entfernt",
-    "ui_popup_player_removed_subtitle": "Spieler wurde entfernt. Der Neutrale Spieler befeligt jetzt die Schiffe."
+    "ui_popup_player_removed_subtitle": "Spieler wurde entfernt. Der Neutrale Spieler befeligt jetzt die Schiffe.",
+    "ui_fleet_table_default_alias_planet": "Planet {0}",
+    "ui_planet_table_headline_alias": "Alias"
 }
